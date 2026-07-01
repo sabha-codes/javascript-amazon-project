@@ -1,3 +1,7 @@
+
+  import {cart} from '' ;
+
+
 let productsHTML = '';
 
 products.forEach((product) => {
