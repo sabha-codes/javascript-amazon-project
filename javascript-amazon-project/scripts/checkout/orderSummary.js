@@ -6,13 +6,8 @@ import { formatCurrency } from '../utils/money.js';
 import { hello } from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
-const today = dayjs();
-const deliveryDate = today.add(7, 'days');
-console.log(deliveryDate.format('dddd, MMMM D'));
-
-// .add() takes two parameters first it is no.of times that we want to add
-// 2nd parameter is that the time link we wanna give
 
 
 export function renderOrderSummary(){
@@ -148,6 +143,8 @@ document.querySelectorAll('.js-delete-link')
       );
       container.remove();
 
+      renderPaymentSummary();
+
     });
 
   });
@@ -159,6 +156,7 @@ element.addEventListener('click', ()=>{
   const {productId, deliveryOptionId} = element.dataset;
   updateDeliveryOption(productId,deliveryOptionId);
   renderOrderSummary();
+  renderPaymentSummary();
 
 });
   });
