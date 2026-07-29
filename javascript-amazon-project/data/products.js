@@ -13,9 +13,13 @@ return new Clothing(productDetails);
 });
 console.log('Load products');
 
-  });
+  }) .catch((error) => {
+    console.log('Unexpected error. Please try again later');
+    
+  });   
   return promise;
 }
+
 /*
 loadProductsFetch().then(() =>{
   console.log('next step');
@@ -128,7 +132,13 @@ return new Clothing(productDetails);
 });
 console.log('Load products');
 fun();
- })
+ });
+
+ xhr.addEventListener('error', (error) =>{
+  console.log('unexpected error, please try again later.');
+  
+ });
+
  xhr.open('GET','https://supersimplebackend.dev/products');
  xhr.send();
 }

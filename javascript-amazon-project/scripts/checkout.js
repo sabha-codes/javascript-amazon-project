@@ -8,7 +8,7 @@ import { loadCart } from '../data/cart.js';
 
 
 async function loadPage() {
-
+try{
 
   await loadProductsFetch();
 
@@ -18,6 +18,11 @@ const value = await new Promise((resolve) =>{
       resolve('value3');
     });
   })
+} catch(error) {
+console.log('unexpected error . please try again later.');
+
+}
+
  renderOrderSummary(); 
 renderPaymentSummary();
 
